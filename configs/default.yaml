@@ -1,0 +1,48 @@
+seed: 42
+device: "cpu"
+
+env:
+  n_agents: 3
+  L: 2                 # lead time
+  A_max: 30.0
+  h: 3.0               # holding cost
+  p: 10.0              # backlog penalty
+  lam: 0.1             # smoothing penalty
+  demand_lambda: 8.0
+  horizon: 128
+
+# python train.py --config configs/default.yaml
+
+train:
+  episodes: 500
+  snapshot_every: 50
+  gamma: 0.95
+  lam: 0.95
+  epochs: 3
+  batch_size: 128
+
+optim:
+  actor_lr: 1e-4
+  critic_lr: 1e-4
+  grad_clip: 0.5
+
+ppo:
+  clip_range: 0.1
+  value_coef: 0.5
+  entropy_coef: 0.03
+  value_clip_range: 0.2
+  target_kl: 0.02     # suggest 0.01–0.02
+  normalize_adv: true
+
+net:
+  act: "silu"                  # tanh/relu/silu/gelu
+  hidden_sizes: [256, 256, 256]
+  layernorm: false
+  dropout: 0.1
+  head_hidden: 64              # extra hidden for alpha/beta heads; 0 disables
+
+baseline:
+  service_level: 0.95
+  demand_sample_steps: 3000
+  eval_episodes: 5
+

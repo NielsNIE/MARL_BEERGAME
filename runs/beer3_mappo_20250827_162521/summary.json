@@ -1,0 +1,81 @@
+{
+  "config": {
+    "episodes": 500,
+    "horizon": 128,
+    "lead_time": 2,
+    "A_max": 30.0,
+    "demand_lambda": 8.0,
+    "device": "cpu",
+    "snapshot_every": 50,
+    "baseline_service_level": 0.95
+  },
+  "baseline": {
+    "S_per_level": [
+      31.771206659224227,
+      31.771206659224227,
+      31.771206659224227
+    ],
+    "S_stats": {
+      "mu": 7.888999938964844,
+      "sigma": 2.844529151916504,
+      "z": 1.6449,
+      "L": 2.0,
+      "service_level": 0.95
+    }
+  },
+  "final_eval": {
+    "RL": {
+      "bullwhip_chain": [
+        0.34903041508394045,
+        1.5414450728632965,
+        0.9297689331621546
+      ],
+      "bull_overall": 0.5002261121079769,
+      "avg_cost_per_step": 119.8227767944336,
+      "fill_rate": 0.9996849072358953,
+      "fill_rate_sla_k": 0.9586708701065124,
+      "avg_backlog": 1.8753043130040168,
+      "avg_inventory": 6.974604657292366
+    },
+    "Baseline": {
+      "bullwhip_chain": [
+        4.057079948308577,
+        4.902232766355026,
+        0.31105080693430776
+      ],
+      "bull_overall": 6.18641181676544,
+      "avg_cost_per_step": 210.13201904296875,
+      "fill_rate": 0.999999999989858,
+      "fill_rate_sla_k": 0.9744129877204416,
+      "avg_backlog": 2.87109067539374,
+      "avg_inventory": 12.969779449204603
+    },
+    "Mean": {
+      "q_mean": 7.888999938964844,
+      "bullwhip_chain": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "bull_overall": 0.0,
+      "avg_cost_per_step": 351.43951416015625,
+      "fill_rate": 0.9999999999898167,
+      "fill_rate_sla_k": 0.38456715973814004,
+      "avg_backlog": 11.496529281139374,
+      "avg_inventory": 0.7108641465504965
+    }
+  },
+  "artifacts": {
+    "run_dir": "runs/beer3_mappo_20250827_162521",
+    "csv_log": "runs/beer3_mappo_20250827_162521/train_log.csv",
+    "plots": {
+      "avg_return": "runs/beer3_mappo_20250827_162521/plot_avg_return.png",
+      "avg_cost": "runs/beer3_mappo_20250827_162521/plot_avg_cost.png",
+      "bullwhip": "runs/beer3_mappo_20250827_162521/plot_bullwhip.png"
+    },
+    "weights": {
+      "actor": "runs/beer3_mappo_20250827_162521/weights/actor.pt",
+      "critic": "runs/beer3_mappo_20250827_162521/weights/critic.pt"
+    }
+  }
+}
